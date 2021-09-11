@@ -4,7 +4,7 @@ export function request(method = "GET",api,data = {}){
         service({
             method,
             url: api,
-            data
+            params:data
         }).then(res=>{
             resolve(res)
         }).catch(err=>{

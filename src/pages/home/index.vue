@@ -1,14 +1,15 @@
 <template>
-    123
+
 </template>
 <script>
 import { defineComponent, onMounted } from 'vue'
-import {test} from '../../api/api'
+import { homeEntry } from '../../api/api'
+import { useStore } from 'vuex'
 export default defineComponent({
     setup() {
-        onMounted(async ()=>{
-            let res = await test()
-            console.log(res)
+        const stroe = useStore()
+        onMounted(()=>{
+            homeEntry(`${stroe.state.location.latitude},${stroe.state.location.longitude}`)
         })
     },
 })
